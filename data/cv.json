@@ -1,0 +1,64 @@
+{
+  "identity": {
+    "firstName": "Shengxin",
+    "lastName": "LI",
+    "phone": "07 49 71 02 99",
+    "email": "shengxin.li@universite-paris-saclay.fr"
+  },
+  "education": [
+    {
+      "period": "2025–2026",
+      "institution": "Université Paris-Saclay",
+      "degree": "DU de FLE – année intensive de français",
+      "details": "Niveau B2 obtenu au TCF (mai 2026)"
+    },
+    {
+      "period": "2020–2024",
+      "institution": "Université d’Économie et de Commerce de la Capitale (CUEB), Pékin",
+      "degree": "Licence de Mathématiques appliquées",
+      "details": ""
+    }
+  ],
+  "experience": [
+    {
+      "period": "Février 2024 – Avril 2024",
+      "role": "Assistant pédagogique IELTS",
+      "company": "Département International New Oriental, Pékin",
+      "tasks": [
+        "Réponse aux questions des étudiants concernant les cours et exercices d’IELTS",
+        "Accompagnement des étudiants dans leur préparation aux examens",
+        "Communication avec les étudiants et les parents"
+      ]
+    },
+    {
+      "period": "Mai 2024 – Juin 2024",
+      "role": "Assistant administratif et analyse de données",
+      "company": "Tonglian Paiement, Pékin",
+      "tasks": [
+        "Analyse de données liées aux activités de l’entreprise",
+        "Utilisation d’outils statistiques pour le traitement des informations",
+        "Assistance aux collègues dans les tâches administratives quotidiennes"
+      ]
+    }
+  ],
+  "skills": {
+    "computing": [
+      "Microsoft Office (Word, Excel)",
+      "Langages : C, R",
+      "Notions de MATLAB"
+    ],
+    "languages": [
+      { "name": "Chinois", "level": "langue maternelle" },
+      { "name": "Français", "level": "niveau B2 (TCF)" },
+      { "name": "Anglais", "level": "CET-6" }
+    ]
+  },
+  "interests": [
+    "Atelier international à l’Université Paris-Saclay",
+    "Tandem linguistique français-chinois",
+    "Échanges culturels avec des familles françaises",
+    "Randonnée",
+    "Musique (pop, folk)",
+    "Voyages : Finlande, Suède, Allemagne"
+  ]
+}
