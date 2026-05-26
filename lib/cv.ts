@@ -22,7 +22,7 @@ export type EducationItem = {
 
 export type Award = {
   date?: string;
-  rank: number | "S";
+  rank: string;
   title: string;
 };
 
@@ -51,4 +51,11 @@ export type CvData = {
   interests: string[];
 };
 
-export const cv = cvData as CvData;
+type RawAward = { date?: string; rank: string | number; title: string };
+type RawCvData = Omit<CvData, "awards"> & { awards: RawAward[] };
+
+const raw = cvData as RawCvData;
+export const cv: CvData = {
+  ...raw,
+  awards: raw.awards.map((a) => ({ ...a, rank: String(a.rank) })),
+};

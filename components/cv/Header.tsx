@@ -8,7 +8,10 @@ type HeaderProps = {
 export function Header({ identity, profile }: HeaderProps) {
   return (
     <header>
-      <div className="flex items-end justify-between gap-6">
+      <div
+        data-section="identity"
+        className="flex items-end justify-between gap-6"
+      >
         <div>
           <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-muted">
             Curriculum vitae
@@ -31,7 +34,10 @@ export function Header({ identity, profile }: HeaderProps) {
           </li>
         </ul>
       </div>
-      <p className="mt-3 max-w-[120mm] text-[10.5px] leading-snug text-muted">
+      <p
+        data-section="profile"
+        className="mt-3 max-w-[120mm] text-[10.5px] leading-snug text-muted"
+      >
         {profile}
       </p>
     </header>

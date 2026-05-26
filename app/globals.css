@@ -35,6 +35,19 @@ body {
     0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
+/* Section selection mode — highlights data-section zones on hover */
+.cv-selecting [data-section] {
+  cursor: pointer;
+  border-radius: 4px;
+  transition: outline-color 120ms ease, background-color 120ms ease;
+  outline: 2px solid transparent;
+  outline-offset: 6px;
+}
+.cv-selecting [data-section]:hover {
+  outline-color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
 @media print {
   body {
     background: #fff;
@@ -43,6 +56,10 @@ body {
     box-shadow: none;
     width: 210mm;
     min-height: 297mm;
+  }
+  .editor-root,
+  .editor-overlay {
+    display: none !important;
   }
   @page {
     size: A4 portrait;

@@ -1,4 +1,4 @@
-import { cv } from "@/lib/cv";
+import type { CvData } from "@/lib/cv";
 import { Awards } from "./Awards";
 import { Courses } from "./Courses";
 import { Header } from "./Header";
@@ -12,13 +12,13 @@ function isMathDegree(degree: string) {
   return MATH_KEYWORDS.some((k) => d.includes(k));
 }
 
-export function CvDocument() {
+export function CvDocument({ data: cv }: { data: CvData }) {
   return (
     <div className="px-[16mm] py-[12mm] text-[11px] leading-snug text-foreground">
       <Header identity={cv.identity} profile={cv.profile} />
       <Keywords items={cv.keywords} />
 
-      <Section title="Formation">
+      <Section title="Formation" dataSection="education">
         <ul className="space-y-3">
           {cv.education.map((item) => (
             <li
@@ -53,11 +53,11 @@ export function CvDocument() {
         </ul>
       </Section>
 
-      <Section title="Distinctions académiques">
+      <Section title="Distinctions académiques" dataSection="awards">
         <Awards items={cv.awards} />
       </Section>
 
-      <Section title="Expériences professionnelles">
+      <Section title="Expériences professionnelles" dataSection="experience">
         <ul className="space-y-3">
           {cv.experience.map((item) => (
             <li
@@ -90,7 +90,7 @@ export function CvDocument() {
         </ul>
       </Section>
 
-      <Section title="Compétences">
+      <Section title="Compétences" dataSection="skills">
         <div className="space-y-2.5">
           <div className="flex items-baseline gap-3">
             <h3 className="w-[80px] shrink-0 text-[10.5px] font-semibold text-foreground">
@@ -136,7 +136,7 @@ export function CvDocument() {
         </div>
       </Section>
 
-      <Section title="Activités et centres d’intérêt">
+      <Section title="Activités et centres d’intérêt" dataSection="interests">
         <ul className="grid grid-cols-2 gap-x-10 gap-y-0.5">
           {cv.interests.map((item) => (
             <li
