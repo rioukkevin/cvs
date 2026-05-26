@@ -2,6 +2,8 @@
 
 import { useState, type KeyboardEvent } from "react";
 
+import { SortableList } from "../SortableList";
+
 export function KeywordsForm({
   value,
   onChange,
@@ -18,6 +20,10 @@ export function KeywordsForm({
     setDraft("");
   };
 
+  const updateAt = (idx: number, newValue: string) => {
+    onChange(value.map((kw, i) => (i === idx ? newValue : kw)));
+  };
+
   const removeAt = (idx: number) => {
     onChange(value.filter((_, i) => i !== idx));
   };
@@ -30,31 +36,35 @@ export function KeywordsForm({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <div>
         <label className="block text-[10px] font-semibold uppercase tracking-wider text-muted mb-1">
           Mots-clés
         </label>
-        {value.length > 0 ? (
-          <div className="flex flex-wrap gap-1.5">
-            {value.map((kw, idx) => (
-              <span
-                key={`${kw}-${idx}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent/8 px-2.5 py-1 text-[10px] font-medium text-accent"
+        <SortableList<string>
+          items={value}
+          onReorder={onChange}
+          idPrefix="keyword"
+          className="space-y-2"
+          renderItem={(kw, idx) => (
+            <div className="flex items-center gap-2">
+              <input
+                type="text"
+                className="w-full rounded-md border border-rule bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none"
+                value={kw}
+                onChange={(e) => updateAt(idx, e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={() => removeAt(idx)}
+                className="text-xs text-muted hover:text-red-600 px-1"
+                aria-label={`Supprimer ${kw}`}
               >
-                {kw}
-                <button
-                  type="button"
-                  onClick={() => removeAt(idx)}
-                  className="text-xs text-muted hover:text-red-600"
-                  aria-label={`Supprimer ${kw}`}
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-          </div>
-        ) : null}
+                ×
+              </button>
+            </div>
+          )}
+        />
       </div>
 
       <div className="flex items-center gap-2">

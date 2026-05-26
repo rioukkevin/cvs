@@ -1,6 +1,7 @@
 "use client";
 
 import type { ExperienceItem } from "@/lib/cv";
+import { SortableList } from "../SortableList";
 
 const inputClass =
   "w-full rounded-md border border-rule bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none";
@@ -59,75 +60,86 @@ export function ExperienceForm({
         + Ajouter une expérience
       </button>
 
-      {value.map((item, idx) => (
-        <div
-          key={idx}
-          className="rounded-md border border-rule bg-white p-3 space-y-2.5"
-        >
-          <div>
-            <label className={labelClass}>Période</label>
-            <input
-              className={inputClass}
-              value={item.period}
-              onChange={(e) => updateItem(idx, { period: e.target.value })}
-            />
-          </div>
+      <SortableList<ExperienceItem>
+        items={value}
+        onReorder={(next) => onChange(next)}
+        idPrefix="exp"
+        className="space-y-3"
+        renderItem={(item, idx) => (
+          <div className="rounded-md border border-rule bg-white p-3 space-y-2.5">
+            <div>
+              <label className={labelClass}>Période</label>
+              <input
+                className={inputClass}
+                value={item.period}
+                onChange={(e) => updateItem(idx, { period: e.target.value })}
+              />
+            </div>
 
-          <div>
-            <label className={labelClass}>Rôle</label>
-            <input
-              className={inputClass}
-              value={item.role}
-              onChange={(e) => updateItem(idx, { role: e.target.value })}
-            />
-          </div>
+            <div>
+              <label className={labelClass}>Rôle</label>
+              <input
+                className={inputClass}
+                value={item.role}
+                onChange={(e) => updateItem(idx, { role: e.target.value })}
+              />
+            </div>
 
-          <div>
-            <label className={labelClass}>Entreprise / Lieu</label>
-            <input
-              className={inputClass}
-              value={item.company}
-              onChange={(e) => updateItem(idx, { company: e.target.value })}
-            />
-          </div>
+            <div>
+              <label className={labelClass}>Entreprise / Lieu</label>
+              <input
+                className={inputClass}
+                value={item.company}
+                onChange={(e) => updateItem(idx, { company: e.target.value })}
+              />
+            </div>
 
-          <div className="space-y-2">
-            <p className={subTitleClass}>Missions</p>
-            {item.tasks.map((task, tIdx) => (
-              <div key={tIdx} className="flex items-center gap-2">
-                <input
-                  className={`${inputClass} flex-1`}
-                  value={task}
-                  onChange={(e) => updateTask(idx, tIdx, e.target.value)}
-                />
-                <button
-                  type="button"
-                  onClick={() => removeTask(idx, tIdx)}
-                  className={removeInlineClass}
-                  aria-label="Supprimer la mission"
-                >
-                  ×
-                </button>
-              </div>
-            ))}
+            <div className="space-y-2">
+              <p className={subTitleClass}>Missions</p>
+              <SortableList<string>
+                items={item.tasks}
+                onReorder={(nextTasks) =>
+                  updateItem(idx, { tasks: nextTasks })
+                }
+                idPrefix={`exp-${idx}-task`}
+                className="space-y-2"
+                renderItem={(task, tIdx) => (
+                  <div className="flex items-center gap-2">
+                    <input
+                      className={`${inputClass} flex-1`}
+                      value={task}
+                      onChange={(e) => updateTask(idx, tIdx, e.target.value)}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => removeTask(idx, tIdx)}
+                      className={removeInlineClass}
+                      aria-label="Supprimer la mission"
+                    >
+                      ×
+                    </button>
+                  </div>
+                )}
+              />
+              <button
+                type="button"
+                onClick={() => addTask(idx)}
+                className={addBtnClass}
+              >
+                + Ajouter une mission
+              </button>
+            </div>
+
             <button
               type="button"
-              onClick={() => addTask(idx)}
-              className={addBtnClass}
+              onClick={() => removeItem(idx)}
+              className={removeCardClass}
             >
-              + Ajouter une mission
+              Supprimer cette expérience
             </button>
           </div>
-
-          <button
-            type="button"
-            onClick={() => removeItem(idx)}
-            className={removeCardClass}
-          >
-            Supprimer cette expérience
-          </button>
-        </div>
-      ))}
+        )}
+      />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
-import type { Skills } from "@/lib/cv";
+import type { Language, Skills } from "@/lib/cv";
+import { SortableList } from "../SortableList";
 
 export function SkillsForm({
   value,
@@ -30,7 +31,7 @@ export function SkillsForm({
 
   const updateLanguageAt = (
     index: number,
-    patch: Partial<{ name: string; level: string }>,
+    patch: Partial<Language>,
   ) => {
     const languages = value.languages.map((lang, i) =>
       i === index ? { ...lang, ...patch } : lang,
@@ -63,9 +64,13 @@ export function SkillsForm({
         >
           + Ajouter
         </button>
-        <div className="space-y-2">
-          {value.computing.map((item, index) => (
-            <div key={index} className="flex items-center gap-2">
+        <SortableList<string>
+          items={value.computing}
+          onReorder={(computing) => onChange({ ...value, computing })}
+          idPrefix="skill-computing"
+          className="space-y-2"
+          renderItem={(item, index) => (
+            <div className="flex items-center gap-2">
               <input
                 type="text"
                 value={item}
@@ -81,8 +86,8 @@ export function SkillsForm({
                 ×
               </button>
             </div>
-          ))}
-        </div>
+          )}
+        />
       </div>
 
       <div className="space-y-2">
@@ -96,9 +101,13 @@ export function SkillsForm({
         >
           + Ajouter une langue
         </button>
-        <div className="space-y-2">
-          {value.languages.map((lang, index) => (
-            <div key={index} className="flex items-center gap-2">
+        <SortableList<Language>
+          items={value.languages}
+          onReorder={(languages) => onChange({ ...value, languages })}
+          idPrefix="skill-lang"
+          className="space-y-2"
+          renderItem={(lang, index) => (
+            <div className="flex items-center gap-2">
               <input
                 type="text"
                 value={lang.name}
@@ -126,8 +135,8 @@ export function SkillsForm({
                 ×
               </button>
             </div>
-          ))}
-        </div>
+          )}
+        />
       </div>
     </div>
   );

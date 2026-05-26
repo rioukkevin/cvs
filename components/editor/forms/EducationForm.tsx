@@ -1,6 +1,7 @@
 "use client";
 
 import type { EducationItem, Course } from "@/lib/cv";
+import { SortableList } from "../SortableList";
 
 const inputClass =
   "w-full rounded-md border border-rule bg-white px-3 py-2 text-sm focus:border-accent focus:outline-none";
@@ -70,107 +71,120 @@ export function EducationForm({
         + Ajouter une formation
       </button>
 
-      {value.map((item, idx) => {
-        const courses = item.courses ?? [];
-        return (
-          <div
-            key={idx}
-            className="rounded-md border border-rule bg-white p-3 space-y-2.5"
-          >
-            <div>
-              <label className={labelClass}>Période</label>
-              <input
-                className={inputClass}
-                value={item.period}
-                onChange={(e) => updateItem(idx, { period: e.target.value })}
-              />
-            </div>
+      <SortableList<EducationItem>
+        items={value}
+        onReorder={(next) => onChange(next)}
+        idPrefix="edu"
+        className="space-y-3"
+        renderItem={(item, idx) => {
+          const courses = item.courses ?? [];
+          return (
+            <div className="rounded-md border border-rule bg-white p-3 space-y-2.5">
+              <div>
+                <label className={labelClass}>Période</label>
+                <input
+                  className={inputClass}
+                  value={item.period}
+                  onChange={(e) => updateItem(idx, { period: e.target.value })}
+                />
+              </div>
 
-            <div>
-              <label className={labelClass}>Institution</label>
-              <input
-                className={inputClass}
-                value={item.institution}
-                onChange={(e) =>
-                  updateItem(idx, { institution: e.target.value })
-                }
-              />
-            </div>
+              <div>
+                <label className={labelClass}>Institution</label>
+                <input
+                  className={inputClass}
+                  value={item.institution}
+                  onChange={(e) =>
+                    updateItem(idx, { institution: e.target.value })
+                  }
+                />
+              </div>
 
-            <div>
-              <label className={labelClass}>Diplôme</label>
-              <input
-                className={inputClass}
-                value={item.degree}
-                onChange={(e) => updateItem(idx, { degree: e.target.value })}
-              />
-            </div>
+              <div>
+                <label className={labelClass}>Diplôme</label>
+                <input
+                  className={inputClass}
+                  value={item.degree}
+                  onChange={(e) => updateItem(idx, { degree: e.target.value })}
+                />
+              </div>
 
-            <div>
-              <label className={labelClass}>Détails</label>
-              <textarea
-                rows={3}
-                className={inputClass}
-                value={item.details}
-                onChange={(e) => updateItem(idx, { details: e.target.value })}
-              />
-            </div>
+              <div>
+                <label className={labelClass}>Détails</label>
+                <textarea
+                  rows={3}
+                  className={inputClass}
+                  value={item.details}
+                  onChange={(e) =>
+                    updateItem(idx, { details: e.target.value })
+                  }
+                />
+              </div>
 
-            <div className="space-y-2">
-              <p className={subTitleClass}>Matières</p>
-              {courses.map((course, cIdx) => (
-                <div key={cIdx} className="flex items-center gap-2">
-                  <input
-                    className={`${inputClass} flex-1`}
-                    value={course.name}
-                    onChange={(e) =>
-                      updateCourse(idx, cIdx, { name: e.target.value })
-                    }
-                  />
-                  <input
-                    type="number"
-                    placeholder="—"
-                    style={{ width: "70px" }}
-                    className={inputClass}
-                    value={course.grade ?? ""}
-                    onChange={(e) =>
-                      updateCourse(idx, cIdx, {
-                        grade:
-                          e.target.value === ""
-                            ? undefined
-                            : Number(e.target.value),
-                      })
-                    }
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removeCourse(idx, cIdx)}
-                    className={removeInlineClass}
-                    aria-label="Supprimer la matière"
-                  >
-                    ×
-                  </button>
-                </div>
-              ))}
+              <div className="space-y-2">
+                <p className={subTitleClass}>Matières</p>
+                <SortableList<Course>
+                  items={courses}
+                  onReorder={(nextCourses) =>
+                    updateItem(idx, { courses: nextCourses })
+                  }
+                  idPrefix={`edu-${idx}-course`}
+                  className="space-y-2"
+                  renderItem={(course, cIdx) => (
+                    <div className="flex items-center gap-2">
+                      <input
+                        className={`${inputClass} flex-1`}
+                        value={course.name}
+                        onChange={(e) =>
+                          updateCourse(idx, cIdx, { name: e.target.value })
+                        }
+                      />
+                      <input
+                        type="number"
+                        placeholder="—"
+                        style={{ width: "70px" }}
+                        className={inputClass}
+                        value={course.grade ?? ""}
+                        onChange={(e) =>
+                          updateCourse(idx, cIdx, {
+                            grade:
+                              e.target.value === ""
+                                ? undefined
+                                : Number(e.target.value),
+                          })
+                        }
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeCourse(idx, cIdx)}
+                        className={removeInlineClass}
+                        aria-label="Supprimer la matière"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                />
+                <button
+                  type="button"
+                  onClick={() => addCourse(idx)}
+                  className={addBtnClass}
+                >
+                  + Ajouter une matière
+                </button>
+              </div>
+
               <button
                 type="button"
-                onClick={() => addCourse(idx)}
-                className={addBtnClass}
+                onClick={() => removeItem(idx)}
+                className={removeCardClass}
               >
-                + Ajouter une matière
+                Supprimer cette formation
               </button>
             </div>
-
-            <button
-              type="button"
-              onClick={() => removeItem(idx)}
-              className={removeCardClass}
-            >
-              Supprimer cette formation
-            </button>
-          </div>
-        );
-      })}
+          );
+        }}
+      />
     </div>
   );
 }

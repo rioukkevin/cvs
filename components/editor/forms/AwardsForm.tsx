@@ -1,6 +1,7 @@
 "use client";
 
 import type { Award } from "@/lib/cv";
+import { SortableList } from "../SortableList";
 
 export function AwardsForm({
   value,
@@ -40,12 +41,13 @@ export function AwardsForm({
           + Ajouter une distinction
         </button>
 
-        <div className="space-y-2">
-          {value.map((award, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-[95px_110px_1fr_auto] items-center gap-2"
-            >
+        <SortableList<Award>
+          items={value}
+          onReorder={onChange}
+          idPrefix="award"
+          className="space-y-2"
+          renderItem={(award, index) => (
+            <div className="grid grid-cols-[95px_110px_1fr_auto] items-center gap-2">
               <input
                 type="text"
                 value={award.date ?? ""}
@@ -76,8 +78,8 @@ export function AwardsForm({
                 ×
               </button>
             </div>
-          ))}
-        </div>
+          )}
+        />
       </div>
     </div>
   );
