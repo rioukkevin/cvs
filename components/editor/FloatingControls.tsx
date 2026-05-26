@@ -3,6 +3,7 @@
 import { useEditor } from "@/lib/editor-context";
 import { EditorButton } from "./EditorButton";
 import { EyeButton } from "./EyeButton";
+import { PrintButton } from "./PrintButton";
 import { SaveButton } from "./SaveButton";
 
 type Props = {
@@ -41,6 +42,9 @@ export function FloatingControls({
           <EyeButton view={view} onToggle={onToggleView} />
         </div>
       )}
+      <div className="pointer-events-auto">
+        <PrintButton />
+      </div>
       <div className="pointer-events-auto">
         <EditorButton
           active={selecting}
