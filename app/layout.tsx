@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CV — Shengxin LI",
+  title: "CV - Shengxin LI",
   description: "Curriculum vitae",
 };
 

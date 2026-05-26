@@ -2,63 +2,73 @@
   "identity": {
     "firstName": "Shengxin",
     "lastName": "LI",
-    "phone": "07 49 71 02 99",
-    "email": "shengxin.li@universite-paris-saclay.fr"
+    "phone": "+33 7 49 71 02 99",
+    "email": "lishengxinfr@126.com"
   },
+  "profile": "Étudiant chinois en mathématiques appliquées, en immersion linguistique à Paris-Saclay pour poursuivre ses études supérieures en France.",
+  "keywords": ["Français B2", "Mathématiques appliquées", "L4 à Pékin", "Vis en France"],
   "education": [
     {
       "period": "2025–2026",
       "institution": "Université Paris-Saclay",
-      "degree": "DU de FLE – année intensive de français",
-      "details": "Niveau B2 obtenu au TCF (mai 2026)"
+      "degree": "DU de FLE · Année intensive de français",
+      "details": "Apprentissage de la culture et des coutumes françaises, amélioration intensive de la langue française, niveau B2 obtenu au TCF (mai 2026)"
     },
     {
       "period": "2020–2024",
       "institution": "Université d’Économie et de Commerce de la Capitale (CUEB), Pékin",
       "degree": "Licence de Mathématiques appliquées",
-      "details": ""
+      "details": "Apprentissage des mathématiques avancées pendant 4 ans, mise en application des connaissances dans des projets réels"
     }
+  ],
+  "awards": [
+    { "date": "Déc. 2023", "rank": 1, "title": "34e Concours de Mathématiques des Étudiants de Pékin" },
+    { "date": "Déc. 2023", "rank": 3, "title": "15e Concours National de Mathématiques" },
+    { "date": "Jan. 2023", "rank": 3, "title": "14e Concours National de Mathématiques" },
+    { "date": "Déc. 2022", "rank": 2, "title": "33e Concours de Mathématiques des Étudiants de Pékin" },
+    { "date": "Déc. 2021", "rank": 2, "title": "32e Concours de Mathématiques des Étudiants de Pékin" },
+    { "date": "Déc. 2021", "rank": 3, "title": "13e Concours National de Mathématiques" },
+    { "rank": "S", "title": "American Mathematical Contest in Modeling" }
   ],
   "experience": [
     {
       "period": "Février 2024 – Avril 2024",
-      "role": "Assistant pédagogique IELTS",
-      "company": "Département International New Oriental, Pékin",
+      "role": "Assistant Pédagogique IELTS",
+      "company": "Département International New Oriental · Pékin",
       "tasks": [
-        "Réponse aux questions des étudiants concernant les cours et exercices d’IELTS",
+        "Réponse aux questions des étudiants concernant les cours et exercices d’IELTS (International English Language Testing System)",
         "Accompagnement des étudiants dans leur préparation aux examens",
         "Communication avec les étudiants et les parents"
       ]
     },
     {
       "period": "Mai 2024 – Juin 2024",
-      "role": "Assistant administratif et analyse de données",
-      "company": "Tonglian Paiement, Pékin",
+      "role": "Analyste de données et Assistant Administratif",
+      "company": "Tonglian Paiement · Pékin",
       "tasks": [
         "Analyse de données liées aux activités de l’entreprise",
-        "Utilisation d’outils statistiques pour le traitement des informations",
+        "Utilisation d’outils statistiques pour le traitement des informations (Excel et R)",
         "Assistance aux collègues dans les tâches administratives quotidiennes"
       ]
     }
   ],
   "skills": {
     "computing": [
-      "Microsoft Office (Word, Excel)",
-      "Langages : C, R",
-      "Notions de MATLAB"
+      "MATLAB",
+      "Langages R et C",
+      "Suite Microsoft Office (Word, Excel)"
     ],
     "languages": [
       { "name": "Chinois", "level": "langue maternelle" },
       { "name": "Français", "level": "niveau B2 (TCF)" },
-      { "name": "Anglais", "level": "CET-6" }
+      { "name": "Anglais", "level": "CET-6 (niveau ~B2)" }
+ 
     ]
   },
   "interests": [
-    "Atelier international à l’Université Paris-Saclay",
     "Tandem linguistique français-chinois",
+    "Voyages : Finlande, Suède, Allemagne",
     "Échanges culturels avec des familles françaises",
-    "Randonnée",
-    "Musique (pop, folk)",
-    "Voyages : Finlande, Suède, Allemagne"
+    "Musique (pop, folk)"
   ]
 }
