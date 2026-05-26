@@ -6,7 +6,12 @@
     "email": "lishengxinfr@126.com"
   },
   "profile": "Étudiant chinois en mathématiques appliquées, en immersion linguistique à Paris-Saclay pour poursuivre ses études supérieures en France.",
-  "keywords": ["Français B2", "Mathématiques appliquées", "L4 à Pékin", "Vis en France"],
+  "keywords": [
+    "Français B2",
+    "Mathématiques appliquées",
+    "L4 à Pékin",
+    "Vis en France"
+  ],
   "education": [
     {
       "period": "2025–2026",
@@ -22,13 +27,40 @@
     }
   ],
   "awards": [
-    { "date": "Déc. 2023", "rank": 1, "title": "34e Concours de Mathématiques des Étudiants de Pékin" },
-    { "date": "Déc. 2023", "rank": 3, "title": "15e Concours National de Mathématiques" },
-    { "date": "Jan. 2023", "rank": 3, "title": "14e Concours National de Mathématiques" },
-    { "date": "Déc. 2022", "rank": 2, "title": "33e Concours de Mathématiques des Étudiants de Pékin" },
-    { "date": "Déc. 2021", "rank": 2, "title": "32e Concours de Mathématiques des Étudiants de Pékin" },
-    { "date": "Déc. 2021", "rank": 3, "title": "13e Concours National de Mathématiques" },
-    { "rank": "S", "title": "American Mathematical Contest in Modeling" }
+    {
+      "date": "Déc. 2023",
+      "rank": "1",
+      "title": "34e Concours de Mathématiques des Étudiants de Pékin"
+    },
+    {
+      "date": "Déc. 2023",
+      "rank": "3",
+      "title": "15e Concours National de Mathématiques"
+    },
+    {
+      "date": "Jan. 2023",
+      "rank": "3",
+      "title": "14e Concours National de Mathématiques"
+    },
+    {
+      "date": "Déc. 2022",
+      "rank": "2",
+      "title": "33e Concours de Mathématiques des Étudiants de Pékin"
+    },
+    {
+      "date": "Déc. 2021",
+      "rank": "2",
+      "title": "32e Concours de Mathématiques des Étudiants de Pékin"
+    },
+    {
+      "date": "Déc. 2021",
+      "rank": "3",
+      "title": "13e Concours National de Mathématiques"
+    },
+    {
+      "rank": "S",
+      "title": "American Mathematical Contest in Modeling"
+    }
   ],
   "experience": [
     {
@@ -59,10 +91,18 @@
       "Suite Microsoft Office (Word, Excel)"
     ],
     "languages": [
-      { "name": "Chinois", "level": "langue maternelle" },
-      { "name": "Français", "level": "niveau B2 (TCF)" },
-      { "name": "Anglais", "level": "CET-6 (niveau ~B2)" }
- 
+      {
+        "name": "Chinois",
+        "level": "langue maternelle"
+      },
+      {
+        "name": "Français",
+        "level": "niveau B2 (Avec TCF)"
+      },
+      {
+        "name": "Anglais",
+        "level": "CET-6 (niveau ~B2)"
+      }
     ]
   },
   "interests": [
