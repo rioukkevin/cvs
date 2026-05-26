@@ -6,7 +6,7 @@ import {
   closestCenter,
   useSensor,
   useSensors,
-  type DragEndEvent,
+  type DragOverEvent,
 } from "@dnd-kit/core";
 import {
   restrictToParentElement,
@@ -100,7 +100,7 @@ export function SortableList<T>({
   const { ids: stableIds, reorderIds } = useStableIds(items);
   const ids = stableIds.map((id) => `${idPrefix}-${id}`);
 
-  const onDragEnd = (e: DragEndEvent) => {
+  const onDragOver = (e: DragOverEvent) => {
     const { active, over } = e;
     if (!over || active.id === over.id) return;
     const oldIndex = ids.indexOf(String(active.id));
@@ -115,7 +115,7 @@ export function SortableList<T>({
       sensors={sensors}
       collisionDetection={closestCenter}
       modifiers={[restrictToVerticalAxis, restrictToParentElement]}
-      onDragEnd={onDragEnd}
+      onDragOver={onDragOver}
     >
       <SortableContext items={ids} strategy={verticalListSortingStrategy}>
         <div className={className}>
