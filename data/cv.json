@@ -95,11 +95,11 @@
     "languages": [
       {
         "name": "Chinois",
-        "level": "langue maternelle"
+        "level": "Langue maternelle"
       },
       {
         "name": "Français",
-        "level": "niveau B2 (Avec TCF)",
+        "level": "niveau B2 (TCF)",
         "highlight": true
       },
       {
