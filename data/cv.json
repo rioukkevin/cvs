@@ -23,43 +23,44 @@
       "period": "2020–2024",
       "institution": "Université d’Économie et de Commerce de la Capitale (CUEB), Pékin",
       "degree": "Licence de Mathématiques appliquées",
-      "details": "Apprentissage des mathématiques avancées pendant 4 ans, mise en application des connaissances dans des projets réels"
+      "details": "Apprentissage des mathématiques avancées pendant 4 ans, mise en application des connaissances dans des projets réels",
+      "highlight": true
     }
   ],
   "awards": [
     {
       "date": "Déc. 2023",
-      "rank": "1",
+      "rank": "1er",
       "title": "34e Concours de Mathématiques des Étudiants de Pékin"
     },
     {
       "date": "Déc. 2023",
-      "rank": "3",
+      "rank": "3ème",
       "title": "15e Concours National de Mathématiques"
     },
     {
       "date": "Jan. 2023",
-      "rank": "3",
+      "rank": "3ème",
       "title": "14e Concours National de Mathématiques"
     },
     {
       "date": "Déc. 2022",
-      "rank": "2",
+      "rank": "2ème",
       "title": "33e Concours de Mathématiques des Étudiants de Pékin"
     },
     {
-      "rank": "S",
+      "rank": "S Award",
       "title": "American Mathematical Contest in Modeling",
       "date": "Fév. 2022"
     },
     {
       "date": "Déc. 2021",
-      "rank": "2",
+      "rank": "2ème",
       "title": "32e Concours de Mathématiques des Étudiants de Pékin"
     },
     {
       "date": "Déc. 2021",
-      "rank": "3",
+      "rank": "3ème",
       "title": "13e Concours National de Mathématiques"
     }
   ],
@@ -98,7 +99,8 @@
       },
       {
         "name": "Français",
-        "level": "niveau B2 (Avec TCF)"
+        "level": "niveau B2 (Avec TCF)",
+        "highlight": true
       },
       {
         "name": "Anglais",

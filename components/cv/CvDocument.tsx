@@ -5,13 +5,6 @@ import { Header } from "./Header";
 import { Keywords } from "./Keywords";
 import { Section } from "./Section";
 
-const MATH_KEYWORDS = ["mathématiques", "mathématique"];
-
-function isMathDegree(degree: string) {
-  const d = degree.toLowerCase();
-  return MATH_KEYWORDS.some((k) => d.includes(k));
-}
-
 export function CvDocument({ data: cv }: { data: CvData }) {
   return (
     <div className="px-[16mm] py-[12mm] text-[11px] leading-snug text-foreground">
@@ -34,7 +27,7 @@ export function CvDocument({ data: cv }: { data: CvData }) {
                 </p>
                 <p
                   className={
-                    isMathDegree(item.degree)
+                    item.highlight
                       ? "inline-flex items-center gap-2 rounded-sm border-l-2 border-accent bg-accent/8 py-0.5 pl-2 pr-2 font-medium text-accent"
                       : "text-foreground"
                   }
@@ -98,7 +91,7 @@ export function CvDocument({ data: cv }: { data: CvData }) {
             </h3>
             <ul className="flex flex-1 flex-wrap items-center gap-x-5 gap-y-1">
               {cv.skills.languages.map((lang) => {
-                const isFrench = lang.name.toLowerCase().startsWith("français");
+                const isFrench = lang.highlight === true;
                 return (
                   <li key={lang.name} className="flex items-center gap-2">
                     <span className="font-medium text-foreground">

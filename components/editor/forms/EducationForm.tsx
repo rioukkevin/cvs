@@ -107,6 +107,17 @@ export function EducationForm({
                   value={item.degree}
                   onChange={(e) => updateItem(idx, { degree: e.target.value })}
                 />
+                <label className="mt-2 flex items-center gap-2 text-xs text-foreground">
+                  <input
+                    type="checkbox"
+                    checked={item.highlight === true}
+                    onChange={(e) =>
+                      updateItem(idx, { highlight: e.target.checked })
+                    }
+                    className="h-3.5 w-3.5 accent-accent"
+                  />
+                  Mettre en avant ce diplôme
+                </label>
               </div>
 
               <div>

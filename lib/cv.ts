@@ -18,6 +18,7 @@ export type EducationItem = {
   degree: string;
   details: string;
   courses?: Course[];
+  highlight?: boolean;
 };
 
 export type Award = {
@@ -33,7 +34,7 @@ export type ExperienceItem = {
   tasks: string[];
 };
 
-export type Language = { name: string; level: string };
+export type Language = { name: string; level: string; highlight?: boolean };
 
 export type Skills = {
   computing: string[];

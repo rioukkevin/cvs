@@ -107,33 +107,46 @@ export function SkillsForm({
           idPrefix="skill-lang"
           className="space-y-2"
           renderItem={(lang, index) => (
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                value={lang.name}
-                onChange={(e) =>
-                  updateLanguageAt(index, { name: e.target.value })
-                }
-                placeholder="Nom"
-                className={inputClass}
-              />
-              <input
-                type="text"
-                value={lang.level}
-                onChange={(e) =>
-                  updateLanguageAt(index, { level: e.target.value })
-                }
-                placeholder="Niveau"
-                className={inputClass}
-              />
-              <button
-                type="button"
-                onClick={() => removeLanguageAt(index)}
-                className="px-1 text-xs text-muted hover:text-red-600"
-                aria-label="Supprimer"
-              >
-                ×
-              </button>
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={lang.name}
+                  onChange={(e) =>
+                    updateLanguageAt(index, { name: e.target.value })
+                  }
+                  placeholder="Nom"
+                  className={inputClass}
+                />
+                <input
+                  type="text"
+                  value={lang.level}
+                  onChange={(e) =>
+                    updateLanguageAt(index, { level: e.target.value })
+                  }
+                  placeholder="Niveau"
+                  className={inputClass}
+                />
+                <button
+                  type="button"
+                  onClick={() => removeLanguageAt(index)}
+                  className="px-1 text-xs text-muted hover:text-red-600"
+                  aria-label="Supprimer"
+                >
+                  ×
+                </button>
+              </div>
+              <label className="flex items-center gap-2 text-xs text-foreground">
+                <input
+                  type="checkbox"
+                  checked={lang.highlight === true}
+                  onChange={(e) =>
+                    updateLanguageAt(index, { highlight: e.target.checked })
+                  }
+                  className="h-3.5 w-3.5 accent-accent"
+                />
+                Mettre en avant cette langue
+              </label>
             </div>
           )}
         />
